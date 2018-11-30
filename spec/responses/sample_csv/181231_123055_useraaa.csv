@@ -1,0 +1,4 @@
+Struktura;Us�uga;E-mail nadawcy;Telefon kom�rkowy nadawcy;Powiadomienie SMS o przyj�ciu;Powiadomienie e-mail o przyj�ciu;Nazwa skr�cona nadawcy;��czna liczba przekaz�w;��czna warto�� przekaz�w;Przyk�adowa nazwa pliku;Op�at� za nadanie ponosi;Podtytu� faktury;Rachunek do zwrot�w kwot przekaz�w;Rachunek do zwrot�w op�at
+4;PPE;no-reply@fake.com;223-337-666;Nie;Nie;kwiatek;1;46,82;181129_155346_kwiatek.csv;Nadawca;;;
+Numer referencyjny;Rodzaj przekazu;Warto�� w PLN;Nazwa adresata;Rodzaj adresu adresata;Kod pocztowy adresata;Miejscowo�� adresata;Poczta adresata;Ulica adresata;Numer domu adresata;Numer lokalu adresata;Numer Skrytki/Przegr�dki adresata;Telefon kom�rkowy adresata;E-mail adresata;Potwierdzenie odbioru;Powiadomienie SMS o dor�czeniu/zwrocie;Powiadomienie e-mail o dor�czeniu/zwrocie;Korespondencja;Korespondencja na potwierdzeniu odbioru
+;;46,82;Ulee Daway;ST;00-000;Lipsko;Warsaw;al. Kowalczuk;1;;;;;;;;;

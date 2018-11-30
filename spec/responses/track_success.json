@@ -1,0 +1,10 @@
+{
+  "uip": "B123456789123456789012",
+  "data_utworzenia": "2000-12-31T00:00:00+00:00",
+  "nazwa_pliku": "001231_120001_client.csv",
+  "numer_umowy": "ID 123456/A",
+  "procent_opustu": "0.00",
+  "stan": "ZweryfikowanyOczekujacyNaZatwierdzenie",
+  "usluga": "PPE",
+  "@xmlns:i": "http://www.w3.org/2001/XMLSchema-instance"
+}

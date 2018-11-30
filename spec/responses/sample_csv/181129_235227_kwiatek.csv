@@ -1,0 +1,4 @@
+Struktura;Us³uga;E-mail nadawcy;Telefon komórkowy nadawcy;Powiadomienie SMS o przyjêciu;Powiadomienie e-mail o przyjêciu;Nazwa skrócona nadawcy;£¹czna liczba przekazów;£¹czna wartoœæ przekazów;Przyk³adowa nazwa pliku;Op³atê za nadanie ponosi;Podtytu³ faktury;Rachunek do zwrotów kwot przekazów;Rachunek do zwrotów op³at
+4;PPE;no-reply@example.com;123-456-000;Nie;Nie;kwiatek;1;84,07;181129_235227_kwiatek.csv;Nadawca;;;
+Numer referencyjny;Rodzaj przekazu;Wartoœæ w PLN;Nazwa adresata;Rodzaj adresu adresata;Kod pocztowy adresata;Miejscowoœæ adresata;Poczta adresata;Ulica adresata;Numer domu adresata;Numer lokalu adresata;Numer Skrytki/Przegródki adresata;Telefon komórkowy adresata;E-mail adresata;Potwierdzenie odbioru;Powiadomienie SMS o dorêczeniu/zwrocie;Powiadomienie e-mail o dorêczeniu/zwrocie;Korespondencja;Korespondencja na potwierdzeniu odbioru
+;;84,07;Don Key;ST;00-000;¯uromin;Warsaw;ul. Kowalczuk;1;1;;;;;;;;

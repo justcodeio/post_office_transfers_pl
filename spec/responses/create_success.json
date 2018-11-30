@@ -1,0 +1,15 @@
+{
+  "uip": "B1234567890123456789012",
+  "data_graniczna_wplaty": "2000-12-31T00:00:00+00:00",
+  "data_utworzenia": "2000-12-28T00:00:00+00:00",
+  "liczba_przekazow_poprawnych": "1",
+  "nazwa_pliku": "001228_155346_user.csv",
+  "numer_rachunku_bankowego_wplaty": "66 1234 5678 9101 1001 0000 1111",
+  "numer_umowy": "ID 123456/A",
+  "oplata_za_nadanie": "5.47",
+  "procent_opustu": "0.00",
+  "stan": "Zamkniety",
+  "usluga": "PPE",
+  "wartosc_przekazow_poprawnych": "46.82",
+  "@xmlns:i": "http://www.w3.org/2001/XMLSchema-instance"
+}
