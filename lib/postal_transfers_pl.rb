@@ -1,6 +1,5 @@
 require 'postal_transfers_pl/version'
 require 'savon'
-require 'pry'
 
 module PostalTransfersPl
   class Client
