@@ -27,6 +27,7 @@ RSpec.describe PostalTransfersPl do
         c.list_documents = ENV['PTP_LIST_DOCUMENTS'] || 'list_documents_method'
         c.read_document = ENV['PTP_READ_DOCUMENT'] || 'read_document_method'
         c.ssl_version = ENV['PTP_SSL_VERSION'] || 'TLSv1'
+        c.file_name_regexp = ENV['PTP_FILE_NAME_REGEXP'] || '\d{6}_\d{6}_\D{4,}'
       end
     end
 

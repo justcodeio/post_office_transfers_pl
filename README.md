@@ -27,11 +27,11 @@ And then execute:
 Or install it yourself as:
 
     $ gem install postal_transfers_pl
-    
+
 When bundled, set up a initializer to provide CLIENT CREDENTIALS
 
 Simply create a polish_post_pl.rb file in the initializers directory, and set it up like this:
-    
+
 ```ruby
 PostalTransfersPl::Client.configure do |c|
   c.wsdl = ENV['PTP_WSDL'] - 'the wsdl address'
@@ -48,6 +48,7 @@ PostalTransfersPl::Client.configure do |c|
   c.list_documents = ENV['PTP_LIST_DOCUMENTS'] - 'the SOAP method to list all generated documents aside order (needed if failed to create) (string converted to symbol in gem)'
   c.read_document = ENV['PTP_READ_DOCUMENT'] - 'the SOAP method to read generated document regarding csv file errors for order (needed if failed to create) (string converted to symbol in gem)'
   c.ssl_version = ENV['PTP_SSL_VERSION'] - 'the version of TLS used by server You are connecting to'
+  c.file_name_regexp = ENV['PTP_FILE_NAME_REGEXP'] - 'file_name_regexp default: \d{6}_\d{6}_\D{4,} if for example using a temp storage before upload, it will convert name to required by api format'
 end
 ```
 If no initializer is provided exception will be raised. In this example I store all my credentialsin env variables.
@@ -75,7 +76,7 @@ example success response :
 
 ```ruby
 PostalTransfersPl::Client.payment_tracking(id: 'uip')
-``` 
+```
 example success response :
 ```ruby
   {
@@ -83,7 +84,7 @@ example success response :
     :stan=>"BrakWplaty",
     :"@xmlns:i"=>"http://www.w3.org/2001/XMLSchema-instance"
   }
-``` 
+```
 example partialy failed response - the tracking was triggered too early ( order in creation in the api )
 Easy to fix just rerun the method in a couple of minutes ;)
 ```ruby
@@ -91,11 +92,11 @@ Easy to fix just rerun the method in a couple of minutes ;)
   :stan=>"BrakPakietu",
   :"@xmlns:i"=>"http://www.w3.org/2001/XMLSchema-instance"
 }
-``` 
+```
 
 ```ruby
 PostalTransfersPl::Client.create_mass_order(service_name: 'PPE', file_path: 'path to file / or url', auto_approve: false)
-``` 
+```
 example success response :
 ```ruby
 {
@@ -113,13 +114,13 @@ example success response :
   :wartosc_przekazow_poprawnych=>"46.82",
   :"@xmlns:i"=>"http://www.w3.org/2001/XMLSchema-instance"
 }
-``` 
+```
 example fail response for creation - when file is bad, parsed from error report file from the api side
 ```ruby
- { 
-   error: "\r\n            Raport Kontroli Formalnej\r\n\r\nNazwa pliku:           181231_123055_useraaa.csv   \r\nGrupa kontrahent\xF3w:    R\xF3\xBFne     \r\nKontrahent:            XXXXXXX Sp.z o.o.                 Numer: 0000001757\r\nWynik kontroli:        Plik niepoprawny\r\n-------------------------------------------------------------------------------\r\nStwierdzone b\xB3\xEAdy:\r\n\r\nOpis nag\xB3\xF3wka w linii 1:\r\n    > Dla kolumny o nr 2/B jej opis powinien by\xE6 r\xF3wny Us\xB3uga\r\n\r\nData wygenerowania dokumentu 29-11-2018.\r\nDokument zosta\xB3 wygenerowany elektronicznie i nie wymaga podpisu ani stempla." 
+ {
+   error: "\r\n            Raport Kontroli Formalnej\r\n\r\nNazwa pliku:           181231_123055_useraaa.csv   \r\nGrupa kontrahent\xF3w:    R\xF3\xBFne     \r\nKontrahent:            XXXXXXX Sp.z o.o.                 Numer: 0000001757\r\nWynik kontroli:        Plik niepoprawny\r\n-------------------------------------------------------------------------------\r\nStwierdzone b\xB3\xEAdy:\r\n\r\nOpis nag\xB3\xF3wka w linii 1:\r\n    > Dla kolumny o nr 2/B jej opis powinien by\xE6 r\xF3wny Us\xB3uga\r\n\r\nData wygenerowania dokumentu 29-11-2018.\r\nDokument zosta\xB3 wygenerowany elektronicznie i nie wymaga podpisu ani stempla."
  }
-``` 
+```
 
 example fail responses - most cases:
 
@@ -134,17 +135,17 @@ invalid file when creating or http errors
 Savon::SOAPFault || Savon::HTTPError
 ```
 
-ALL other methods come with a simple hash response or raise one of the common errors. 
+ALL other methods come with a simple hash response or raise one of the common errors.
 
 ## Development
 
-run rspec for tests. 
+run rspec for tests.
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/justcodeio/postal_transfers_pl.
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-Feel free to fork and expand it to Your needs ! 
+Feel free to fork and expand it to Your needs !
 
 ## License
 

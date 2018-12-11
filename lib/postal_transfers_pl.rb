@@ -19,7 +19,7 @@ module PostalTransfersPl
                     :list_documents, :read_document,
                     :payment_tracking_trigger, :payment_tracking,
                     :user, :password, :track, :create,
-                    :delete, :confirm, :ssl_version
+                    :delete, :confirm, :ssl_version, :file_name_regexp
 
       def initialize
         @wsdl = nil
@@ -36,6 +36,7 @@ module PostalTransfersPl
         @list_documents = nil
         @read_document = nil
         @ssl_version = nil
+        @file_name_regexp = nil
       end
     end
 
@@ -70,10 +71,11 @@ module PostalTransfersPl
 
     def self.create_mass_order(service_name:, file_path:, auto_approve: false)
       file_name = File.basename(URI.parse(file_path).path)
+      api_file_name = Regexp.new(PostalTransfersPl::Client.configuration.file_name_regexp.to_s).match(file_name).to_s + '.csv'
       base = Base64.encode64(open(file_path).read)
       resp = self.new.client.call(
         PostalTransfersPl::Client.configuration.create.to_sym,
-        message: { 'v1:RodzajUslugi' => service_name, 'v1:NazwaPliku' => file_name, 'v1:ZawartoscPliku' => base, 'v1:ZatwierdzenieAutomatyczne' => auto_approve }
+        message: { 'v1:RodzajUslugi' => service_name, 'v1:NazwaPliku' => api_file_name, 'v1:ZawartoscPliku' => base, 'v1:ZatwierdzenieAutomatyczne' => auto_approve }
       ).to_hash.fetch((PostalTransfersPl::Client.configuration.create.to_s + '_response').to_sym)
       self.confirm_or_destroy_mass_order(id: resp.fetch(:uip))
     end
